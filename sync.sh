@@ -2,7 +2,7 @@
 
 set -ex
 
-REPO_URL=https://jgantunes.github.io/helm-charts
+REPO_URL=https://johnytiago.github.io/helm-charts
 CHARTS=ipfs-testbed
 CHARTS_FOLDER=charts
 
