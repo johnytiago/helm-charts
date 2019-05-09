@@ -22,7 +22,7 @@ toxiproxy:
 
 ipfs:
   image:
-    repository: johnytiago/js-ipfs
+    repository: registry.gitlab.com/johnytiago/js-ipfs
     tag: latest
     pullPolicy: IfNotPresent
   env:
