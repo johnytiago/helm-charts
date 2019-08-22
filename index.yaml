@@ -1,13 +1,1 @@
-apiVersion: v1
-entries:
-  ipfs-testbed:
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2019-02-03T19:19:25.81869584Z
-    description: A Helm chart used to create an IPFS testbed with Toxiproxy
-    digest: 1ececfbd87e94c702ba435441f82f94a91890260f6609749230a380dcc3d0862
-    name: ipfs-testbed
-    urls:
-    - charts/ipfs-testbed-0.1.0.tgz
-    version: 0.1.0
-generated: 2019-02-03T19:19:25.818200641Z
+charts/index.yaml
