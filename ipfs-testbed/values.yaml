@@ -27,7 +27,7 @@ ipfs:
     pullPolicy: IfNotPresent
   env:
     - name: DEBUG
-      value: "libp2p*,jsipfs*"
+      value: "libp2p:startrail*,libp2p:dht*,jsipfs*"
   readinessProbe:
     initialDelaySeconds: 20
     periodSeconds: 20
@@ -37,6 +37,10 @@ ipfs:
     periodSeconds: 20
     timeoutSeconds: 3
   config:
+    Addresses:
+      API: "/ip4/0.0.0.0/tcp/5002"
+      Swarm:
+        - "/ip4/127.0.0.1/tcp/4002"
     Discovery:
       MDNS:
         Enabled: false
