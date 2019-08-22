@@ -3,11 +3,21 @@ entries:
   ipfs-testbed:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-05-09T18:50:20.683689+01:00
+    created: 2019-08-22T15:17:16.945767+01:00
     description: A Helm chart used to create an IPFS testbed with Toxiproxy
-    digest: 8f62ca7bde60c35e5c456d10c357bdffe815b5f2e4902673fdf7f86f12f8306e
+    digest: 10350951f9b0463cd6944789972beec7f0a16a7bddfbefb419597e5678e899f4
     name: ipfs-testbed
     urls:
     - https://johnytiago.github.io/helm-charts/ipfs-testbed-0.1.0.tgz
     version: 0.1.0
-generated: 2019-05-09T18:50:20.681552+01:00
+  js-ipfs:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2019-08-22T15:17:16.946019+01:00
+    description: A Helm chart used to create an IPFS testbed
+    digest: fad720a1a4806a055eb4e50630efdb68b2a91b6842cd30bae460cd91e07b10d4
+    name: js-ipfs
+    urls:
+    - https://johnytiago.github.io/helm-charts/js-ipfs-0.1.0.tgz
+    version: 0.1.0
+generated: 2019-08-22T15:17:16.945079+01:00
