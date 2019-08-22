@@ -1,0 +1,48 @@
+# Default values for js-ipfs.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+
+ipfs:
+  image:
+    repository: registry.gitlab.com/johnytiago/js-ipfs
+    tag: latest
+    pullPolicy: IfNotPresent
+  env:
+    - name: DEBUG
+      value: "libp2p:startrail*,libp2p:dht*,jsipfs*"
+  readinessProbe:
+    initialDelaySeconds: 20
+    periodSeconds: 20
+    timeoutSeconds: 3
+  livenessProbe:
+    initialDelaySeconds: 20
+    periodSeconds: 20
+    timeoutSeconds: 3
+  config:
+    Addresses:
+      API: "/ip4/0.0.0.0/tcp/5002"
+      Swarm:
+        - "/ip4/127.0.0.1/tcp/4002"
+    Discovery:
+      MDNS:
+        Enabled: false
+      webRTCStar:
+        Enabled: true
+    Bootstrap: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: NodePort
+  ipfsAPI:
+    port: 5002
+  swarm:
+    port: 4002
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
