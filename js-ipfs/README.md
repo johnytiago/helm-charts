@@ -16,4 +16,14 @@ helm install johnytiago/js-ipfs
 
 ## Configuration
 
+**Note on testing on minikube**
+
+If you are testing on minikube and want to load your dataset to a pod,
+make sure you mount your `/block` folder on the expected path
+
+```
+minikube mount ~/.jsipfs/blocks/:/root/.jsipfs/blocks
+
+```
+
 Check the [config](./values.yaml) for all the supported values.
