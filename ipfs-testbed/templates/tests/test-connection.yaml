@@ -15,4 +15,10 @@ spec:
       image: busybox
       command: ['wget']
       args:  ['{{ include "ipfs-testbed.fullname" . }}:{{ .Values.service.ipfsAPI.port }}/api/v0/id']
+  {{- if .Values.dataset }}
+    - name: test-dataset
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "ipfs-testbed.fullname" . }}:{{ .Values.service.ipfsAPI.port }}{{ .Values.dataset.test_endpoint }}']
+  {{- end }}
   restartPolicy: Never

@@ -83,13 +83,40 @@ spec:
           volumeMounts:
             - name: ipfs-config
               mountPath: /root/.jsipfs
+          {{- with .Values.dataset }}
+            {{- if eq .url "minikube" }}
+            - name: ipfs-config-blocks
+              mountPath: /root/.jsipfs/blocks
+            {{- end }}
+          {{- end }}
+    {{- with .Values.dataset }}
+      {{- if ne .url "minikube" }}
+      initContainers:
+        - name: fetch-blocks
+          image: busybox
+          command: ["/bin/sh", "-c"]
+          args: 
+           - mkdir /root/.jsipfs;
+             wget -q -O - {{ .url }} --no-check-certificate | tar xz -C /root/.jsipfs"
+          volmeMounts:
+          - name: ipfs-config
+            mountPath: /root/.jsipfs
+      {{- end }}
+    {{- end }}
       volumes:
+        - name: ipfs-config
+          emptyDir: {}
+    {{- with .Values.dataset }}
+      {{- if eq .url "minikube" }}
+        - name: ipfs-config-blocks
+          hostPath: 
+            path: /root/.jsipfs/blocks
+      {{- end }}
+    {{- end }}
         - name: toxiproxy-config
           configMap:
             name: {{ include "ipfs-testbed.fullname" . }}-toxiproxy-config
             defaultMode: 0444
-        - name: ipfs-config
-          emptyDir: {}
     {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

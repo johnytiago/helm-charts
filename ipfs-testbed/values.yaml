@@ -26,8 +26,10 @@ ipfs:
     tag: latest
     pullPolicy: IfNotPresent
   env:
-    - name: DEBUG
+    - name: "DEBUG"
       value: "libp2p:startrail*,libp2p:dht*,jsipfs*"
+    - name: "IPFS_KUBERNETES_PROXY"
+      value: "true"
   readinessProbe:
     initialDelaySeconds: 20
     periodSeconds: 20
@@ -50,7 +52,6 @@ ipfs:
 
 nameOverride: ""
 fullnameOverride: ""
-
 service:
   type: NodePort
   swarm:
@@ -59,6 +60,10 @@ service:
     port: 8474
   ipfsAPI:
     port: 5002
+
+dataset: 
+ url: "minikube" # OR "https://startrail.joaotiago.dev.s3.amazonaws.com/dataset-1.tar.gz"
+ test_endpoint: "/api/v0/cat?arg=/ipfs/QmdA5WkDNALetBn4iFeSepHjdLGJdxPBwZyY47ir1bZGAK/home.html"
 
 nodeSelector: {}
 
