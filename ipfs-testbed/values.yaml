@@ -61,9 +61,9 @@ service:
   ipfsAPI:
     port: 5002
 
-dataset: 
- url: "minikube" # OR "https://startrail.joaotiago.dev.s3.amazonaws.com/dataset-1.tar.gz"
- test_endpoint: "/api/v0/cat?arg=/ipfs/QmdA5WkDNALetBn4iFeSepHjdLGJdxPBwZyY47ir1bZGAK/home.html"
+#dataset: 
+ #url: "minikube" # OR "https://startrail.joaotiago.dev.s3.amazonaws.com/dataset-1.tar.gz"
+ #test_endpoint: "/api/v0/cat?arg=/ipfs/QmdA5WkDNALetBn4iFeSepHjdLGJdxPBwZyY47ir1bZGAK/home.html"
 
 nodeSelector: {}
 
