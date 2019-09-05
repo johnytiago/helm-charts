@@ -10,7 +10,7 @@ ipfs:
     pullPolicy: IfNotPresent
   env:
     - name: DEBUG
-      value: "libp2p:startrail*,libp2p:dht*,jsipfs*"
+      value: "startrail*,libp2p:dht*,jsipfs*"
   readinessProbe:
     initialDelaySeconds: 20
     periodSeconds: 20

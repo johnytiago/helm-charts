@@ -27,7 +27,7 @@ ipfs:
     pullPolicy: IfNotPresent
   env:
     - name: "DEBUG"
-      value: "libp2p:startrail*,libp2p:dht*,jsipfs*"
+      value: "libp2p:dht*,jsipfs*,startrail*"
     - name: "IPFS_KUBERNETES_PROXY"
       value: "true"
   readinessProbe:
