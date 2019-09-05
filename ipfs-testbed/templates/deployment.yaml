@@ -97,7 +97,7 @@ spec:
           command: ["/bin/sh", "-c"]
           args: 
            - mkdir /root/.jsipfs;
-             wget -q -O - {{ .url }} --no-check-certificate | tar xz -C /root/.jsipfs"
+             wget -q -O - {{ .url }} --no-check-certificate | tar xz -C /root/.jsipfs
           volmeMounts:
           - name: ipfs-config
             mountPath: /root/.jsipfs
