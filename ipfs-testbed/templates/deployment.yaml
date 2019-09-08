@@ -96,7 +96,10 @@ spec:
           image: busybox
           command: ["/bin/sh", "-c"]
           args: 
-           - "mkdir -p /root/.jsipfs && wget -q -O - {{ .url }} --no-check-certificate | tar xz -C /root/.jsipfs"
+           - >
+             mkdir -p /root/.jsipfs;
+             wget -q -O - {{ .url }} --no-check-certificate | tar xz -C /root/.jsipfs;
+             ls /root/.jsipfs/blocks | wc
           volmeMounts:
           - name: ipfs-config
             mountPath: /root/.jsipfs
