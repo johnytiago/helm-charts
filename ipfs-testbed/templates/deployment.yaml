@@ -98,7 +98,7 @@ spec:
           args: 
            - >
              mkdir -p /root/.jsipfs/blocks;
-             then wget -q -O - {{ .url }} --no-check-certificate | tar xz -C /root/.jsipfs/blocks;
+             wget -q -O - {{ .url }} --no-check-certificate | tar xz -C /root/.jsipfs/blocks;
              ls /root/.jsipfs/blocks | wc
           volmeMounts:
           - name: ipfs-config
