@@ -83,9 +83,11 @@ spec:
           volumeMounts:
             - name: ipfs-config
               mountPath: /root/.jsipfs
-          {{- if .Values.dataset }}
+          {{- with .Values.dataset }}
+            {{- if eq .url "minikube" }}
             - name: ipfs-config-blocks
               mountPath: /root/.jsipfs/blocks
+            {{- end }}
           {{- end }}
     {{- with .Values.dataset }}
       {{- if ne .url "minikube" }}
@@ -96,22 +98,22 @@ spec:
           args: 
            - >
              mkdir -p /root/.jsipfs/blocks;
-             if [ $(ls /root/.jsipfs/blocks | wc -l) -lt 18 ]; 
-               then wget -q -O - {{ .url }} --no-check-certificate | tar xz -C /root/.jsipfs/blocks;
-             fi;
+             then wget -q -O - {{ .url }} --no-check-certificate | tar xz -C /root/.jsipfs/blocks;
              ls /root/.jsipfs/blocks | wc
           volmeMounts:
-          - name: ipfs-config-blocks
-            mountPath: /root/.jsipfs/blocks
+          - name: ipfs-config
+            mountPath: /root/.jsipfs
       {{- end }}
     {{- end }}
       volumes:
         - name: ipfs-config
           emptyDir: {}
-    {{- if .Values.dataset }}
+    {{- with .Values.dataset }}
+      {{- if eq .url "minikube" }}
         - name: ipfs-config-blocks
           hostPath: 
             path: /root/.jsipfs/blocks
+      {{- end }}
     {{- end }}
         - name: toxiproxy-config
           configMap:
