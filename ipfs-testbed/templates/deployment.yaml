@@ -103,6 +103,15 @@ spec:
           volmeMounts:
           - name: ipfs-config
             mountPath: /root/.jsipfs
+        - name: verify
+          image: busybox
+          command: ["/bin/sh", "-c"]
+          args: 
+           - >
+             ls /root/.jsipfs/blocks | wc
+          volmeMounts:
+          - name: ipfs-config
+            mountPath: /root/.jsipfs
       {{- end }}
     {{- end }}
       volumes:
