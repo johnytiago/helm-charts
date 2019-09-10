@@ -92,11 +92,7 @@ spec:
       initContainers:
         - name: fetch-blocks
           image: busybox
-          command: ["/bin/sh", "-c"]
-          args: 
-           - >
-             wget -q -O - {{ .url }} --no-check-certificate | tar xz -C /blocks;
-             ls /blocks | wc
+          command: ['sh', '-c', 'wget -q -O - {{ .url }} --no-check-certificate | tar xz -C /blocks; ls /blocks | wc']
           volmeMounts:
           - name: ipfs-config-blocks
             mountPath: /blocks
